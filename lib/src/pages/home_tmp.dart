@@ -38,7 +38,8 @@ class PageHomeTmp extends StatelessWidget {
         title: Text("Widget's Temporales"),
       ),
       body: ListView(
-        children: _crearItems(),
+        // children: _crearItems(),
+        children: _crearItemsCorto(),
       ),
     );
   }
@@ -57,5 +58,21 @@ class PageHomeTmp extends StatelessWidget {
     }
 
     return lista;
+  }
+
+  // ListTile’s a partir de una lista estática (arreglo de string’s) - Forma 02
+  List<Widget> _crearItemsCorto() {
+    // Aquí regresamos una nueva lista iterable, donde recorre cada uno de los elementos de la lista
+    return items.map((item) {
+      // Regresamos un widget Column() que regrese un arreglo de widget's ListTile() junto con su Divider()
+      return Column(
+        children: <Widget>[
+          ListTile(
+            title: Text(item + "!"),
+          ),
+          Divider(),
+        ],
+      );
+    }).toList(); // Tenemos que convertirlo a una lista para que no exista error al momento de regresar la lista de widget's
   }
 }
