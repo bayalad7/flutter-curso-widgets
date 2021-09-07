@@ -1,0 +1,27 @@
+{
+  "workbench.iconTheme": "material-icon-theme",
+  "bracket-pair-colorizer-2.colors": ["#fafafa", "#9F51B6", "#F7C244", "#F07850", "#9CDD29", "#C497D4"],
+  "editor.mouseWheelZoom": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "[dart]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [ 80 ],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    //"editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": false
+  },
+  "editor.wordWrap": "off",
+  "[markdown]": {
+    "editor.wordWrap": "off",
+    "editor.quickSuggestions": false
+  },
+}
