@@ -18,12 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Flutter Widget's",
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("App Widget's"),
-        ),
-        body: PageHomeTmp(),
-      ),
+      home: PageHomeTmp(),
     );
   }
 }
