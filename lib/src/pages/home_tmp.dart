@@ -69,6 +69,14 @@ class PageHomeTmp extends StatelessWidget {
         children: <Widget>[
           ListTile(
             title: Text(item + "!"),
+            // subtitle: Recibe un widget de tipo Text() para agregar un texto por debajo del título principal del item de la lista
+            subtitle: Text("Subtítulo del item"),
+            // leading: Recibe un widget que se posiciona al inicio del item de la lista
+            leading: Icon(Icons.circle),
+            // trailing: Recibe un widget que se posiciona al final del item de la lista
+            trailing: Icon(Icons.keyboard_arrow_right),
+            // onTap: Recibe un método void y hace la ilusión a como si se le pudiera hacer un click al item de la lista
+            onTap: () {},
           ),
           Divider(),
         ],
