@@ -14,10 +14,23 @@
  *      en la lista, es el widget ListTile().
  * 05 - El widget Divider() pone sutilmente una línea entre la lista de children’s,
  *      como para separar cada item de la lista.
+ * 06 - Para agregar una lista dinámicamente al ListView a partir de un arreglo de string’s,
+ *      vamos a crear un método para regresar una lista de widget’s que es lo que espera
+ *      el argumento de children dentro del ListView;
+ *      Para este ejemplo nuestro método se llamará _crearItems().
+ * 07 - Dart nos ofrece un operador bien interesante
  */
 import 'package:flutter/material.dart';
 
 class PageHomeTmp extends StatelessWidget {
+  final List<String> items = [
+    "Lista Item 1",
+    "Lista Item 2",
+    "Lista Item 3",
+    "Lista Item 4",
+    "Lista Item 5"
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,20 +38,24 @@ class PageHomeTmp extends StatelessWidget {
         title: Text("Widget's Temporales"),
       ),
       body: ListView(
-        children: <Widget>[
-          ListTile(
-            title: Text("ListTile Item"),
-          ),
-          Divider(),
-          ListTile(
-            title: Text("ListTile Item"),
-          ),
-          Divider(),
-          ListTile(
-            title: Text("ListTile Item"),
-          ),
-        ],
+        children: _crearItems(),
       ),
     );
+  }
+
+  // ListTile’s a partir de una lista estática (arreglo de string’s) - Forma 01
+  List<Widget> _crearItems() {
+    // Aquí creamos una lista de widget's dinámicamente, sin definir el largo de la lista.
+    List<Widget> lista = <Widget>[];
+
+    for (var item in items) {
+      // print("El item: $item");
+      final itemWidget = ListTile(
+        title: Text(item),
+      );
+      lista..add(itemWidget)..add(Divider());
+    }
+
+    return lista;
   }
 }
