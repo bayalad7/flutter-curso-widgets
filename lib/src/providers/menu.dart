@@ -9,22 +9,29 @@
  * 05 - Cuando instanciamos la clase y después queramos ejecutar un HotReload, el constructor
  *      _ProviderMenu(){ cargarData(); } no se vuelve a ejecutar porque solamente se ejecuta una sola vez.
  *      Si queremos que se vuelva a ejecutar tendremos que hacer un Restart.
+ * 06 - Para convertir el JSON String en un Mapa, Dart tiene una función propia que está dentro
+ *      del import 'dart:convert'; La cual es json.decode(data);
  */
 
 import 'package:flutter/services.dart' show rootBundle;
+
+import 'dart:convert';
 
 class _ProviderMenu {
   List<dynamic> items = [];
 
   _ProviderMenu() {
-    cargarData();
+    // cargarData();
   }
 
-  cargarData() {
+  Future<List<dynamic>> cargarData() async {
     // Aquí cargamos la información del archivo .json estático
-    rootBundle.loadString("data/menu.json").then((data) {
-      print(data); // Imprimimos el string de la data del archivo .json
-    });
+    final data = await rootBundle.loadString("data/menu.json");
+    // Convertimos el data string en un mapa
+    Map dataMap = json.decode(data);
+    // Obtenemos las rutas del archivo .json, ya con el json convertido.
+    items = dataMap["rutas"];
+    return items;
   }
 }
 
