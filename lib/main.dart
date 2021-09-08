@@ -8,7 +8,8 @@
 
 import 'package:flutter/material.dart';
 
-import 'src/pages/home_tmp.dart';
+// import 'src/pages/home_tmp.dart';
+import 'src/pages/home.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,7 +19,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Flutter Widget's",
-      home: PageHomeTmp(),
+      // home: PageHomeTmp(),
+      home: PageHome(),
     );
   }
 }
