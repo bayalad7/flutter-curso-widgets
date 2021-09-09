@@ -70,6 +70,10 @@ import 'package:flutter/material.dart';
 import '../providers/menu.dart';
 import '../utils/icons.dart';
 
+// Páginas para la navegación de las pantallas
+import '../pages/alert.dart';
+import '../pages/avatar.dart';
+
 class PageHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -112,13 +116,13 @@ class PageHome extends StatelessWidget {
         }
 
         return ListView(
-          children: _listaItems(snapshot.data),
+          children: _listaItems(snapshot.data, context),
         );
       },
     );
   }
 
-  List<Widget> _listaItems(List<dynamic>? data) {
+  List<Widget> _listaItems(List<dynamic>? data, BuildContext context) {
     final List<Widget> items = [];
 
     data?.forEach((item) {
@@ -126,7 +130,22 @@ class PageHome extends StatelessWidget {
         title: Text(item["texto"]),
         leading: getIcon(item["icon"]),
         trailing: Icon(Icons.keyboard_arrow_right, color: Colors.amber),
-        onTap: () {},
+        onTap: () {
+          var route;
+          switch (item["ruta"]) {
+            case "alert":
+              route = MaterialPageRoute(
+                builder: (context) => PageAlert(),
+              );
+              break;
+            case "avatar":
+              route = MaterialPageRoute(
+                builder: (context) => PageAvatar(),
+              );
+              break;
+          }
+          Navigator.push(context, route);
+        },
       );
 
       items..add(widgetItem)..add(Divider());
