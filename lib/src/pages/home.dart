@@ -71,8 +71,8 @@ import '../providers/menu.dart';
 import '../utils/icons.dart';
 
 // Páginas para la navegación de las pantallas
-import '../pages/alert.dart';
-import '../pages/avatar.dart';
+// import '../pages/alert.dart';
+// import '../pages/avatar.dart';
 
 class PageHome extends StatelessWidget {
   @override
@@ -131,6 +131,8 @@ class PageHome extends StatelessWidget {
         leading: getIcon(item["icon"]),
         trailing: Icon(Icons.keyboard_arrow_right, color: Colors.amber),
         onTap: () {
+          /*
+          // Forma de Navegación 01
           var route;
           switch (item["ruta"]) {
             case "alert":
@@ -145,6 +147,10 @@ class PageHome extends StatelessWidget {
               break;
           }
           Navigator.push(context, route);
+          */
+
+          // Forma de Navegación 02
+          Navigator.pushNamed(context, item["ruta"]);
         },
       );
 
