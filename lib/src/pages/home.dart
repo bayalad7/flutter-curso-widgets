@@ -68,6 +68,7 @@
 import 'package:flutter/material.dart';
 
 import '../providers/menu.dart';
+import '../utils/icons.dart';
 
 class PageHome extends StatelessWidget {
   @override
@@ -123,7 +124,7 @@ class PageHome extends StatelessWidget {
     data?.forEach((item) {
       final widgetItem = ListTile(
         title: Text(item["texto"]),
-        leading: Icon(Icons.restart_alt, color: Colors.amber),
+        leading: getIcon(item["icon"]),
         trailing: Icon(Icons.keyboard_arrow_right, color: Colors.amber),
         onTap: () {},
       );
