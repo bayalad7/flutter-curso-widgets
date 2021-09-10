@@ -8,14 +8,7 @@
 
 import 'package:flutter/material.dart';
 
-// import 'src/pages/home_tmp.dart';
-import 'src/pages/home.dart';
-
-// Páginas para la navegación de las pantallas
-import 'src/pages/alert.dart';
-import 'src/pages/avatar.dart';
-
-import 'src/pages/404.dart';
+import 'src/routes/main.dart';
 
 void main() => runApp(MyApp());
 
@@ -25,17 +18,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Flutter Widget's",
-      // home: PageHomeTmp(),
-      // home: PageHome(),
-      initialRoute: "home",
-      routes: <String, WidgetBuilder>{
-        "home": (BuildContext context) => PageHome(),
-        "alert": (BuildContext context) => PageAlert(),
-        "avatar": (BuildContext context) => PageAvatar(),
-      },
+      initialRoute: getApplicationInitialRoute(),
+      routes: getApplicationRoutes(),
       onGenerateRoute: (RouteSettings settings) {
-        // print("Ruta ${settings.name}");
-        return MaterialPageRoute(builder: (BuildContext context) => PageE404());
+        return getApplicationRouteE404(context);
       },
     );
   }
