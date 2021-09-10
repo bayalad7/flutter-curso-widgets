@@ -15,6 +15,8 @@ import 'src/pages/home.dart';
 import 'src/pages/alert.dart';
 import 'src/pages/avatar.dart';
 
+import 'src/pages/404.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -30,6 +32,10 @@ class MyApp extends StatelessWidget {
         "home": (BuildContext context) => PageHome(),
         "alert": (BuildContext context) => PageAlert(),
         "avatar": (BuildContext context) => PageAvatar(),
+      },
+      onGenerateRoute: (RouteSettings settings) {
+        // print("Ruta ${settings.name}");
+        return MaterialPageRoute(builder: (BuildContext context) => PageE404());
       },
     );
   }
