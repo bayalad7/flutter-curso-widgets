@@ -32,6 +32,9 @@ class PageCard extends StatelessWidget {
           _cardTipoPrincipal(),
           SizedBox(height: 10.0),
           _cardTipoSecundario(),
+          SizedBox(height: 10.0),
+          _cardTipoTerciario(),
+          SizedBox(height: 10.0),
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -46,6 +49,8 @@ class PageCard extends StatelessWidget {
 
   Widget _cardTipoPrincipal() {
     return Card(
+      elevation: 5.0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
       child: Column(
         children: <Widget>[
           ListTile(
@@ -67,7 +72,11 @@ class PageCard extends StatelessWidget {
 
   Widget _cardTipoSecundario() {
     var imagen = _randomImagenes[Random().nextInt(9)].toString();
+
     return Card(
+      elevation: 5.0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+      clipBehavior: Clip.antiAlias,
       child: Column(
         children: <Widget>[
           FadeInImage(
@@ -83,6 +92,26 @@ class PageCard extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _cardTipoTerciario() {
+    return Container(
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+        color: Colors.white,
+        boxShadow: <BoxShadow>[
+          BoxShadow(
+            color: Colors.black26,
+            blurRadius: 5.0,
+            spreadRadius: 2.0,
+            offset: Offset(2.0, 5.0),
+          )
+        ],
+      ),
+      padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+      child: Text("Texto de información con un Container."),
     );
   }
 }
